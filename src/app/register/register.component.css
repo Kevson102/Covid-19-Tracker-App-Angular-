@@ -1,0 +1,9 @@
+
+body{
+  background-color:rgb(228, 225, 225);
+  height: 100%;
+}
+
+#register{
+  margin: 7rem auto;
+}
