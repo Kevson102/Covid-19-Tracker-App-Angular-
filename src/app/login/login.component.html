@@ -1,0 +1,22 @@
+<div class="container-fluid d-flex justify-content-center login ">
+  <div class="mt-2">
+      <form #loginForm="ngForm" (ngSubmit)="loginUser()"  class="animate__animated animate__bounceIn border p-5  shadow-lg  bg-white rounded-3" id ="bd">
+        <h2 class="animate__animated animate__bounceInLeft text-center p-3" style="font-size:6vmin;">LOGIN</h2>
+          <div class=" rounded " style="box-shadow: 2px 5px #888888; margin-bottom:2rem;">
+
+              <input id="username" name="username"  placeholder="username" [(ngModel)]="username" class="form-control form-control" type="username" required>
+          </div>
+          <div class=" rounded "  style="box-shadow: 2px 5px #888888; margin-bottom:2rem;">
+
+              <input id="password1" name="password1"  [(ngModel)]="password" placeholder="enter your password" class="form-control" type="password" required>
+          </div>
+          <div class="mb-3 text-center">
+              <button class="btn text-white" style="background-color: #507C82;margin-bottom:2rem ;" type="submit">Login</button>
+          </div>
+          <hr>
+          <div class="mb-3">
+              <p>Don't have an account, <a routerLink="register">sign up</a></p>
+          </div>
+      </form>
+  </div>
+</div>
