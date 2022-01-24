@@ -16,7 +16,7 @@ export class AccountsService {
     this.http.post(`${environment.BASE_URL}api/login/`,credentials).subscribe((res:any)=>{
       sessionStorage.setItem('token', res['token'])
       this.authService.authentication(true)
-      this.snackbar.open(`Welcome back ${credentials.get('username')}`,"Dismiss")
+      this.snackbar.open(`Welcome to Infra Health ${credentials.get('username')}`,"Dismiss")
       this.route.navigate(['homepage']);
     },error=>{
       this.snackbar.open(`There was a problem logging you in, please check your credentials and try again.`,"Dismiss",{duration:3000})

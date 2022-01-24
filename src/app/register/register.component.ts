@@ -12,6 +12,8 @@ export class RegisterComponent implements OnInit {
   constructor(private accountsService:AccountsService) {}
 
   username:any;
+  first_name: any;
+  last_name: any;
   email:any;
   password:any;
 
@@ -20,6 +22,8 @@ export class RegisterComponent implements OnInit {
   registerUser(){
     let form = new FormData()
     form.append('username',this.username)
+    form.append('first_name',this.first_name)
+    form.append('last_name',this.last_name)
     form.append('email',this.email)
     form.append('password',this.password)
     this.accountsService.register(form)
