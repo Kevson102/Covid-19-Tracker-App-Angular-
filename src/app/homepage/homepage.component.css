@@ -1,15 +1,32 @@
-body{
-  font-family:Quintessential;
+@import "~bootstrap/dist/css/bootstrap.css";
+@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
+
+
+.image{
+  background: url(/assets/canva2.jpg);
+  height: 90vh;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.info{
+  color: white;
+  /* font-family:Quintessential; */
+
+}
+.info>h1{
+  font-size: 90px;
+  padding-top:100px;
+  font-family: 'Quintessential', serif;
+}
+.info>p{
+  font-size:25px;
+
+}
+.info>h2{
+  font-size:25px;
+  font-family: 'Quintessential', serif;
 }
 
-
-.information{
-background: url(/assets/canva2.jpg);
-position: absolute;
-width: 1510px;
-height: 100vh;
-left: 22px;
-top: 90px;
-background-size: 100% 100%;
-background-repeat: no-repeat;
+div{
+  font-family: 'Quintessential', serif;
 }

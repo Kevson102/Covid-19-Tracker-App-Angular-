@@ -4,6 +4,6 @@ body{
   height: 100%;
 }
 
-.login{
-  margin: 7rem auto;
+.font{
+  font-family: 'Quintessential', serif;
 }
