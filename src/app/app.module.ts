@@ -15,6 +15,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 import { CheckComponent } from './check/check.component';
 import { CenterComponent } from './center/center.component';
+import { NewsComponent } from './news/news.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { CenterComponent } from './center/center.component';
     NavbarComponent,
     CheckComponent,
     CenterComponent,
+    NewsComponent,
 
 
   ],
