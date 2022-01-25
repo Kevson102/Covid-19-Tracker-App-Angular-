@@ -1,0 +1,33 @@
+.container{
+  background-image: url(/assets/corona.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 90vh;
+  width: 100vw;
+  opacity: 100%;
+}
+
+li,p{
+font-size:20px;
+color: #fff;
+padding-top:7px;
+margin-left: 80px;
+font-weight:900px;
+
+
+}
+h2,h1{
+  font-family: 'Scope One', serif;
+  color: #fff;
+  padding-top:7px;
+  margin-left: 80px;
+  font-weight:900px;
+  font-size:28px;
+
+} 
+.coron{
+color: rgb(197, 13, 13);
+font-weight: 900px;
+font-size:28px;
+
+}
