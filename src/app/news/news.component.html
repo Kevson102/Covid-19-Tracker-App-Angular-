@@ -1,0 +1,15 @@
+<div class="container-fluid mt-5">
+    <h4>Top News</h4>
+    <div class="row">
+        <div class="col-lg-3 mt-3 mb-3" *ngFor="let Covid19news of Covid19NewsResult">
+            <div class="card">
+                <img src="{{ Covid19news.urlToImage }}" width="100%" class="card-img-top" alt="..." />
+                <div class="card-body">
+                    <h5 class="card-title">{{ Covid19news.title }}</h5>
+                    <a href="{{ Covid19news.url }}" target="_blank" class="btn btn-dark btn-sm mt-2">Read More</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

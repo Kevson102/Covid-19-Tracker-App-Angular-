@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { AuthService } from './auth.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +42,16 @@ export class AccountsService {
       this.snackbar.open("You were logged out!","See you later",{duration:3000})
     }
 
+  Covid19NewsApiUrl = 'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=7773d394da3b4ca6b99b1854b725f1c9';
+    topHeadlines():Observable<any>
+    {
+      return this.http.get(this.Covid19NewsApiUrl);
+    }
+    
+    Covid19News():Observable<any>
+    {
+      return this.http.get(this.Covid19NewsApiUrl);
+    }
   }
 
 
