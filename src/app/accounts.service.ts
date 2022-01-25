@@ -34,11 +34,18 @@ export class AccountsService {
     })
   }
 
+
   logout(){
-    sessionStorage.removeItem('token')
-    this.authService.authentication(false)
+
+      sessionStorage.removeItem('token');
+      this.snackbar.open("You were logged out!","See you later",{duration:3000})
+    }
+
   }
-}
+
+
+
+
 
 
 

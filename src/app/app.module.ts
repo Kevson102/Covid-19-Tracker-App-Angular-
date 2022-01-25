@@ -12,7 +12,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
-import { SymptomsComponent } from './symptoms/symptoms.component';
+
+import { CheckComponent } from './check/check.component';
+import { CenterComponent } from './center/center.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { SymptomsComponent } from './symptoms/symptoms.component';
     RegisterComponent,
     HomepageComponent,
     NavbarComponent,
-    SymptomsComponent,
+    CheckComponent,
+    CenterComponent,
 
 
   ],

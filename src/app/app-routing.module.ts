@@ -5,18 +5,20 @@ import { LoginComponent} from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SymptomsComponent } from './symptoms/symptoms.component';
+import { CheckComponent } from './check/check.component';
+import { CenterComponent } from './center/center.component';
 
 
 
 const routes: Routes = [
   { path: 'navbar', component: NavbarComponent},
   { path: 'homepage',  component: HomepageComponent},
+  { path: 'center', component: CenterComponent},
   { path: '', component: LoginComponent},
+
   { path: 'register', component: RegisterComponent },
   { path: 'symptoms', component: SymptomsComponent },
-
-  
-
+  { path: 'check', component: CheckComponent},
 
 
 ];
