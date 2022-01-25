@@ -27,6 +27,9 @@
   font-family: 'Quintessential', serif;
 }
 
-div{
-  font-family: 'Quintessential', serif;
+
+.coron{
+color: rgb(197, 13, 13);
+font-weight: 900px;
+font-size:80px;
 }
