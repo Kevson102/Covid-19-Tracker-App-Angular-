@@ -20,7 +20,7 @@ export class CheckComponent implements OnInit {
     this.isValidFormSubmitted = true;
     this.user.userName = form.controls['uname'].value;
     this.user. Have_you_lost_smell_or_test  = form.controls[' Have_you_lost_smell_or_test '].value;
-      this.user. Are_you_experiencing_fatigue = form.controls[' Are_you_experiencing_fatigue'].value;
+    this.user. Are_you_experiencing_fatigue = form.controls[' Are_you_experiencing_fatigue'].value;
     this.user. Do_you_have_a_cough          = form.controls[' Do_you_have_a_cough '].value;
     this.user. Do_you_have_difficulties_in_breathing  = form.controls[' Do_you_have_difficulties_in_breathing '].value;
     this.user. Do_you_have_a_fever          = form.controls[' Do_you_have_a_fever'].value;
