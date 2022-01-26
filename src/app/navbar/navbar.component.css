@@ -1,0 +1,7 @@
+.navbar .navbar-brand {
+    color: rgb(8, 8, 8);
+}
+.navbar .navbar-brand b {
+    font-weight: bold;
+    color: #6b89c9;
+}

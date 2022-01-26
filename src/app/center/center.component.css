@@ -1,3 +1,26 @@
 *{
-  background-color: rgb(125, 178, 238);
+  background-color: #507C82;
+}
+
+.field{
+  text-align: center;
+  font-weight: bold;
+  
+}
+.txt1{
+  text-align: center;
+  font-weight: bold;
+}
+.txt2{
+  text-align: center;
+  font-weight: bold;
+}
+.txt3{
+  text-align: center;
+  font-weight: bold;
+}
+.txt4{
+  text-align: center;
+  font-weight: bolder;
+  margin-bottom: 10px;
 }

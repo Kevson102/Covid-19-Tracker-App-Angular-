@@ -2,10 +2,9 @@
   <div class="row1">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div
-        class="container bg-image d-flex justify-content-center align-items-center"
-      >
-        <a class="navbar-brand" routerLink="/homepage" routerLinkActive='active' href="#">Infra Health LTD</a>
-        <button
+        class="container bg-image d-flex justify-content-center align-items-center">
+      <a class="navbar-brand" routerLink="/homepage" routerLinkActive='active' href="#">Infra <b> Health LTD</b></a>
+      <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
@@ -28,14 +27,12 @@
               <a class="nav-link" routerLink="/symptoms" routerLinkActive='active' >Symptoms</a>
             </li>
             <li class="nav-item">
-
-              <a class="nav-link" routerLink="/helpcenter" routerLinkActive='active' >Help Center</a>
+              <a class="nav-link" routerLink="/center" routerLinkActive='active' href="#">Help Center</a>
             </li>
           </ul>
           <span class="navbar-text">
             <a class="nav-link"  routerLink="" routerLinkActive='active'>Login</a>
-
-
+            <a class="nav-link" (click)="logout()" routerLink="" routerLinkActive='active'href="#">Log Out</a>
           </span>
         </div>
       </div>

@@ -5,12 +5,29 @@ import { environment } from 'src/environments/environment';
 import { AuthService } from './auth.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
+import { User } from './user'; 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountsService {
-
+  createUser(user: User) {
+    //Log user data in console
+console.log("User Name: " + user.userName);
+console.log(" Have_you_lost_smell_or_test : " + user. Have_you_lost_smell_or_test );
+console.log(" Do_you_have_a_sore_throat : " + user. Do_you_have_a_sore_throat );
+console.log(" Are youexperiencing fatigue: " + user. Are_you_experiencing_fatigue );
+console.log(" Do_you_have_a_cough: " + user. Do_you_have_a_cough );
+console.log(" Do_you_have_difficulties_in_breathing: " + user. Do_you_have_difficulties_in_breathing );
+console.log(" Do_you_have_a_fever: " + user. Do_you_have_a_fever );
+console.log(" Do_you_have_chills: " + user. Do_you_have_chills );
+console.log(" Do_you_have_a_headache: " + user. Do_you_have_a_headache );
+console.log(" Do_you_have_muscle_aches: " + user. Do_you_have_muscle_aches );
+console.log(" Do_you_have_nasal_congestion : " + user. Do_you_have_nasal_congestion );
+console.log(" Are_you_experiencing_nausea: " + user. Are_you_experiencing_nausea );
+console.log(" Are_you_experiencing_any_vomiting: " + user. Are_you_experiencing_any_vomiting );
+console.log(" Do_you_have_diarrhea: " + user. Do_you_have_diarrhea );
+console.log(" Close_contact_with_an_infected_person: " + user. Close_contact_with_an_infected_person );}
   constructor(private http: HttpClient,private route:Router,private authService:AuthService, private snackbar:MatSnackBar){ }
 
   login(credentials:any){
