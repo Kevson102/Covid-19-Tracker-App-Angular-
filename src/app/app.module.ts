@@ -12,9 +12,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
+
 import { CheckComponent } from './check/check.component';
 import { CenterComponent } from './center/center.component';
-
+import { NewsComponent } from './news/news.component';
+import { HighchartsChartModule } from 'highcharts-angular';
+import { NgChartsModule } from 'ng2-charts';
+import { FormatNumberPipe } from './pipes';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +28,8 @@ import { CenterComponent } from './center/center.component';
     NavbarComponent,
     CheckComponent,
     CenterComponent,
+    NewsComponent,
+    FormatNumberPipe
 
 
   ],
@@ -34,7 +40,9 @@ import { CenterComponent } from './center/center.component';
     FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    HighchartsChartModule,
+    NgChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
