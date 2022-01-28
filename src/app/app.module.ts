@@ -16,7 +16,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CheckComponent } from './check/check.component';
 import { CenterComponent } from './center/center.component';
 import { NewsComponent } from './news/news.component';
-
+import { HighchartsChartModule } from 'highcharts-angular';
+import { NgChartsModule } from 'ng2-charts';
+import { FormatNumberPipe } from './pipes';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +29,7 @@ import { NewsComponent } from './news/news.component';
     CheckComponent,
     CenterComponent,
     NewsComponent,
+    FormatNumberPipe
 
 
   ],
@@ -37,7 +40,9 @@ import { NewsComponent } from './news/news.component';
     FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    HighchartsChartModule,
+    NgChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

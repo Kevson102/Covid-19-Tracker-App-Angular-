@@ -1,22 +1,141 @@
 <div class="container">
-  <div class="image">
-    <div class="row">
-      <div class="col-md-1"></div>
-    <div class="col-md-6 info">
-      <h1 class="pb-2">Infra <span class="coron">Health</span></h1>
-      <h2 class="py-3">Towards a Covid-Free country!</h2>
-      <p>
-        Know your COVID19 status, Interact with a doctor
-      </p>
-      <p>
-        and get home care or hospital recommendations.
-      </p>
+    <div class="image">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-6 info">
+                <h1 class="pb-2">Infra <span class="coron">Health</span></h1>
+                <h2 class="py-3">Towards a Covid-Free country!</h2>
+                <p>
+                    Know your COVID19 status, Interact with a doctor
+                </p>
+                <p>
+                    and get home care or hospital recommendations.
+                </p>
+            </div>
+            <div class="col-md-5"></div>
+        </div>
     </div>
-    <div class="col-md-5"></div>
-    </div>
-  </div>
 </div>
+<h2 class="animate__animated animate__bounceInLeft text-center p-3 font" style="font-size:6vmin; font-family: 'Quintessential', serif;"> WORLD GENERAL STATISTICS</h2>
+<div class="dashbord-container">
+    <section *ngIf="!flags.isError">
+        <div class="flex-container">
+            <h5 *ngIf="selectedCountry.toLowerCase() == 'all'" class="info-text" style="font-size:3vmin; font-family: 'Quintessential', serif;">SHOWING RESULTS FOR ALL COUNTRIES</h5>
+            <h5 *ngIf="selectedCountry.toLowerCase() != 'all'" class="info-text" style="font-size:3vmin; font-family: 'Quintessential', serif;">Showing results for {{selectedCountry}}</h5>
 
+            <form class="form-inline">
+                <label style="padding-right: 10px;" for="exampleFormControlSelect1">COUNTRY</label>
+                <select class="form-control" name="country" id="exampleFormControlSelect1" [(ngModel)]="selectedCountry" (change)="onChangeCountry()">  
+                  <option>All</option>        
+                  <option *ngFor="let country of data?.countryList">{{country}}</option>
+              </select>
+            </form>
+        </div>
+
+        <div class="row card-container">
+            <div class="col-6 col-md-3 p-fix">
+                <div class="covid-card covid-card-red">
+                    <h2 class="animate__animated animate__bounceInLeft text-center p-3 font" style="font-size:3vmin; font-family: 'Quintessential', serif;">OVERALL CASES</h2>
+                    <div class="covid-card-body">
+                        <p class="loading-text" *ngIf="!flags.isStatsLoaded">Loading...</p>
+                        <div *ngIf="flags.isStatsLoaded">
+                            <h2 class="count">{{data?.total | formatNumber}}</h2>
+                            <div class="text-center card-desc">
+                                <small>{{data?.new | formatNumber}} new cases</small>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 p-fix">
+                <div class="covid-card covid-card-blue">
+                    <h2 class="animate__animated animate__bounceInLeft text-center p-3 font" style="font-size:3vmin; font-family: 'Quintessential', serif;">ACTIVE CASES</h2>
+                    <div class="covid-card-body">
+                        <p class="loading-text" *ngIf="!flags.isStatsLoaded">Loading...</p>
+                        <div *ngIf="flags.isStatsLoaded">
+                            <h2 class="count">{{data?.active | formatNumber}}</h2>
+                            <div class="text-center card-desc">
+                                <small>{{data?.critical | formatNumber}} critical cases</small>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 p-fix">
+                <div class="covid-card covid-card-green">
+                    <h2 class="animate__animated animate__bounceInLeft text-center p-3 font" style="font-size:3vmin; font-family: 'Quintessential', serif;">RECOVERED</h2>
+                    <div class="covid-card-body">
+                        <p class="loading-text" *ngIf="!flags.isStatsLoaded">Loading...</p>
+
+                        <div *ngIf="flags.isStatsLoaded">
+                            <h2 class="count">{{data?.recovered | formatNumber}}</h2>
+                            <div class="text-center card-desc">
+                                <small></small>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 p-fix">
+                <div class="covid-card covid-card-grey">
+                    <h2 class="animate__animated animate__bounceInLeft text-center p-3 font" style="font-size:3vmin; font-family: 'Quintessential', serif;">DEATHS</h2>
+                    <div class="covid-card-body">
+                        <p class="loading-text" *ngIf="!flags.isStatsLoaded">Loading...</p>
+
+                        <div *ngIf="flags.isStatsLoaded">
+                            <h2 class="count">{{data?.deaths | formatNumber}}</h2>
+                            <div class="text-center card-desc">
+                                <small>{{data?.newDeaths | formatNumber}} recent deaths</small>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-6 p-fix">
+                <div class="covid-card covid-card-white">
+
+                    <h2 class="animate__animated animate__bounceInLeft text-center p-3 font" style="font-size:6vmin; font-family: 'Quintessential', serif;">OVERVIEW</h2>
+                    <p class="loading-text chart-loading-text" *ngIf="!flags.isStatsLoaded">Loading...</p>
+                    <div *ngIf="flags.isStatsLoaded">
+                        <highcharts-chart class="chart-container" [Highcharts]="Highcharts" [options]="pieChartOptions" [(update)]="flags.updateFlag"></highcharts-chart>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-6 p-fix">
+                <div class="covid-card covid-card-white">
+
+                    <h2 class="animate__animated animate__bounceInLeft text-center p-3 font" style="font-size:6vmin; font-family: 'Quintessential', serif;">LOCATION WITH HIGHEST CASES</h2>
+                    <p class="loading-text chart-loading-text" *ngIf="!flags.isStatsLoaded">Loading...</p>
+                    <div *ngIf="flags.isStatsLoaded">
+                        <highcharts-chart class="chart-container" [Highcharts]="Highcharts" [options]="columnChartOptions" [(update)]="flags.updateFlag"></highcharts-chart>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <section class="container-fluid" *ngIf="flags.isError">
+        <div class="error-container">
+            <div class="row">
+                <div class="col-12 col-md-4 offset-md-4">
+                    <img src="assets/img/bug_fixed.svg" class="img-fluid" alt="">
+                    <div class="error-text">
+                        <h2>An error has occured!</h2>
+                        <p>We are looking into the issue. Please check back later</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
 
 
 

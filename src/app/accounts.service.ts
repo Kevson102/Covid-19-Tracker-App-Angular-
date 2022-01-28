@@ -10,7 +10,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AccountsService {
-
+  baseUrl: string = "https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/";
+  covidBaseUrl = "https://covid-193.p.rapidapi.com/"
   constructor(private http: HttpClient,private route:Router,private authService:AuthService, private snackbar:MatSnackBar){ }
 
   login(credentials:any){
@@ -74,11 +75,32 @@ export class AccountsService {
     {
       return this.http.get(this.Covid19NewsApiUrl);
     }
+
+  getCovid19Data() {
+    return this.http.get(this.baseUrl + 'stats', {
+      headers: {
+        "x-rapidapi-host": "covid-19-coronavirus-statistics.p.rapidapi.com",
+        "x-rapidapi-key": "16c4042140mshf206cd74ee2903dp1622efjsnd448d87eb2c8"
+      }
+    });
   }
 
+  getCovid19CountryList() {
+    return this.http.get(this.covidBaseUrl + "countries", {
+      headers: {
+        "x-rapidapi-host": "covid-193.p.rapidapi.com",
+        "x-rapidapi-key": "16c4042140mshf206cd74ee2903dp1622efjsnd448d87eb2c8"
+      }
+    });
+  }
 
+  getCovid19Stats() {
+    return this.http.get(this.covidBaseUrl + "statistics", {
+      headers: {
+        "x-rapidapi-host": "covid-193.p.rapidapi.com",
+        "x-rapidapi-key": "16c4042140mshf206cd74ee2903dp1622efjsnd448d87eb2c8"
+      }
+    });
 
-
-
-
-
+  }
+}
