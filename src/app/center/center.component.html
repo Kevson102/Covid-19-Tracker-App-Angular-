@@ -6,8 +6,9 @@
     <h1 class="field" style="color: rgb(85, 13, 13);">HOW DO YOU FEEL?</h1>
     <p class="txt1">Tell us how you feel by filling the form you will be led to by </p><p class="txt2">the button below so we can assign you a doctor or </p><p class="txt3"> recommend a hostpital to visit</p>
     <p class="txt4" style="margin-bottom: 5px;">To procceed click the button below.</p>
-    <div class="mb-3 text-center">
-        <button class="btn text-black" style="background-color: #f8fafa;margin-bottom:2rem ;" routerLink="/check" type="submit">Health Form</button>
+    <div class="mb-3 text-center" >
+      <button class="btn text-black" style="background-color: #f8fafa;margin-bottom:2rem ;" routerLink="/register" type="submit" *ngfor="isLoggedin">Health Form</button>
+        <button class="btn text-black" style="background-color: #f8fafa;margin-bottom:2rem ;" routerLink="/check" type="submit" *ngIf="!isLoggedin">Health Form</button>
     </div>
 </body>
 </html>

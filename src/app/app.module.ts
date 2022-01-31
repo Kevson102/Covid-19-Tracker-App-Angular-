@@ -19,6 +19,8 @@ import { NewsComponent } from './news/news.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { NgChartsModule } from 'ng2-charts';
 import { FormatNumberPipe } from './pipes';
+import { ProfileComponent } from './profile/profile.component';
+import { DoctorComponent } from './doctor/doctor.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,9 @@ import { FormatNumberPipe } from './pipes';
     CheckComponent,
     CenterComponent,
     NewsComponent,
-    FormatNumberPipe
+    FormatNumberPipe,
+    ProfileComponent,
+    DoctorComponent
 
 
   ],

@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div
         class="container bg-image d-flex justify-content-center align-items-center">
-      <a class="navbar-brand" routerLink="/homepage" routerLinkActive='active' href="#">Infra <b> Health LTD</b></a>
+      <a class="navbar-brand" routerLink="/homepage" routerLinkActive='active' href="#"><span>Infra</span> <b> Health LTD</b></a>
       <button
           class="navbar-toggler"
           type="button"
@@ -13,7 +13,7 @@
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -29,10 +29,17 @@
             <li class="nav-item">
               <a class="nav-link" routerLink="/center" routerLinkActive='active' href="#">Help Center</a>
             </li>
-          </ul>
+          <li class="nav-item" *ngIf='isLoggedin'>
+            <a class="nav-link" routerLink="/profile" routerLinkActive='active' href="#">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/doctor" routerLinkActive='active' href="#">Doctors</a>
+          </li>
+        </ul>
           <span class="navbar-text">
-            <a class="nav-link"  routerLink="" routerLinkActive='active'>Login</a>
-            <a class="nav-link" (click)="logout()" routerLink="" routerLinkActive='active'href="#">Log Out</a>
+            <a class="nav-link"  routerLink="" routerLinkActive='active' *ngIf="!isLoggedin">Login</a>
+            <a class="nav-link" (click)="logout()" routerLink="" routerLinkActive='active'href="#" *ngIf="isLoggedin">Logout</a>
+
           </span>
         </div>
       </div>

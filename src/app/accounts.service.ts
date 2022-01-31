@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { AuthService } from './auth.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +15,18 @@ export class AccountsService {
   covidBaseUrl = "https://covid-193.p.rapidapi.com/"
   constructor(private http: HttpClient,private route:Router,private authService:AuthService, private snackbar:MatSnackBar){ }
 
+
+  isLoggedin:Subject<boolean>=new Subject<boolean>()
+
   login(credentials:any){
-    this.http.post(`${environment.BASE_URL}api/login/`,credentials).subscribe((res:any)=>{
+    return this.http.post(`${environment.BASE_URL}api/login/`,credentials).subscribe((res:any)=>{
       sessionStorage.setItem('token', res['token'])
+      console.log(res['user']);
       this.authService.authentication(true)
       this.snackbar.open(`Welcome to Infra Health ${credentials.get('username')}`,"Dismiss")
+      this.isLoggedin.next(true);
       this.route.navigate(['homepage']);
+
     },error=>{
       this.snackbar.open(`There was a problem logging you in, please check your credentials and try again.`,"Dismiss",{duration:3000})
 
@@ -63,6 +70,7 @@ export class AccountsService {
 
       sessionStorage.removeItem('token');
       this.snackbar.open("You were logged out!","See you later",{duration:3000})
+      this.isLoggedin.next(false);
     }
 
   Covid19NewsApiUrl = 'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=7773d394da3b4ca6b99b1854b725f1c9';

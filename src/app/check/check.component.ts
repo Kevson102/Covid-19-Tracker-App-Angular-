@@ -26,7 +26,7 @@ export class CheckComponent implements OnInit {
       });
 
    }
-
+   isLoggedin=false;
    onsubmitAnswer(e) {
      const button=e.target
      button['disabled']=true

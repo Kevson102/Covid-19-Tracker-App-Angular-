@@ -4,15 +4,15 @@
     {{question.id}}  {{question.question}}
     <div class="div">
       <label>
-        Yes<input (change)='onAnswer(question.id,true)' type="radio" value="yes" name="answer" >
+        Yes<input (change)='onAnswer(question.id,false)' type="radio" value="yes" name="answer" >
        </label>
        <label>
-        No<input (change)='onAnswer(question.id,false)'type="radio" value="no" name="answer" >
+        No<input (change)='onAnswer(question.id,true)'type="radio" value="no" name="answer" >
        </label>
     </div>
   </div>
 </div>
- <button (click)="onsubmitAnswer($event)"> submit</button>
+ <button (click)="onsubmitAnswer($event)" *ngIf="!isLoggedin"> submit</button>
 
 
 
@@ -39,173 +39,4 @@
 
 
 
-
-<!-- <div class="container-fluid justify-content-center login check">
-    <div class="row">
-      <form #checklistForm="ngForm" (ngSubmit)="checklist()"  class="animate__animated animate__bounceIn border p-5  shadow-lg  bg-white rounded-3" id ="bd">
-            <h1 class="animate__animated animate__bounceInLeft text-center p-3 font" style="font-size:6vmin; font-family: 'Quintessential', serif;">Health Checklist</h1>
-                 <div>
-                    <div [ngModel]="Have_you_lost_smell_or_test">1. Have you lost smell or test?</div>
-                    <div class="mb-3">
-                         <input type="radio" value="0" name=" Have_you_lost_smell_or_test " [ngModel]="Yes" required #Have_you_lost_smell_or_test ="ngModel"> Yes
-                             <input type="radio" value="1" name=" Have_you_lost_smell_or_test " [ngModel]="No " required #Have_you_lost_smell_or_test ="ngModel"> No
-                     <div class="mb-3" *ngIf=" Have_you_lost_smell_or_test.invalid && checklistForm.submitted && !isValidFormSubmitted " [ngClass] = "'error'">
-                          please select an option!
-                     </div>
-                    </div>
-                 </div> -->
-
-                 <!-- <div>
-                    <div>2. Do you have a sore throat?</div>
-                    <div class="quiz mb-3">
-                         <input type="radio" value="0" name="  Do_you_have_a_sore_throat " [ngModel]="checklist.  Do_you_have_a_sore_throat " required #Do_you_have_a_sore_throat ="ngModel"> Yes
-                             <input type="radio" value="1" name="  Do_you_have_a_sore_throat " [ngModel]="checklist.  Do_you_have_a_sore_throat " required #Do_you_have_a_sore_throat ="ngModel"> No
-                     <div *ngIf="Do_you_have_a_sore_throat .invalid && userForm.submitted && !isValidFormSubmitted" [ngClass] = "'error'">
-                          please select an option!
-                     </div>
-                    </div>
-                 </div>
-
-                 <div>
-                    <div>3. Are you experiencing fatigue?</div>
-                    <div class="quiz mb-3">
-                         <input type="radio" value="0" name=" Are_you_experiencing_fatigue" [ngModel]="checklist. Are_you_experiencing_fatigue" required #Are_you_experiencing_fatigue ="ngModel"> Yes
-                             <input type="radio" value="1" name=" Are_you_experiencing_fatigue" [ngModel]="checklist. Are_you_experiencing_fatigue" required #Are_you_experiencing_fatigue ="ngModel"> No
-                     <div *ngIf=" Are_you_experiencing_fatigue.invalid && userForm.submitted && !isValidFormSubmitted" [ngClass] = "'error'">
-                          please select an option!
-                     </div>
-                    </div>
-                 </div>
-
-                 <div>
-                    <div>4. Do you have a cough?</div>
-                    <div class="quiz mb-3">
-                         <input type="radio" value="0" name=" Do_you_have_a_cough" [ngModel]="checklist. Do_you_have_a_cough" required #Do_you_have_a_cough="ngModel"> Yes
-                             <input type="radio" value="1" name=" Do_you_have_a_cough" [ngModel]="checklist. Do_you_have_a_cough" required #Do_you_have_a_cough="ngModel"> No
-                     <div *ngIf=" Do_you_have_a_cough.invalid && userForm.submitted && !isValidFormSubmitted" [ngClass] = "'error'">
-                          please select an option!
-                     </div>
-                    </div>
-                 </div>
-
-                 <div>
-                    <div>5. Do you have difficulties in breathing?</div>
-                    <div class="quiz mb-3">
-                         <input type="radio" value="0" name=" Do_you_have_difficulties_in_breathing " [ngModel]="checklist. Do_you_have_difficulties_in_breathing " required #Do_you_have_difficulties_in_breathing ="ngModel"> Yes
-                             <input type="radio" value="1" name=" Do_you_have_difficulties_in_breathing " [ngModel]="checklist. Do_you_have_difficulties_in_breathing " required #Do_you_have_difficulties_in_breathing ="ngModel"> No
-                     <div *ngIf=" Do_you_have_difficulties_in_breathing .invalid && userForm.submitted && !isValidFormSubmitted" [ngClass] = "'error'">
-                          please select an option!
-                     </div>
-                    </div>
-                 </div>
-
-                 <div>
-                    <div>6. Do you have a fever?</div>
-                    <div class="quiz mb-3">
-                         <input type="radio" value="0" name=" Do_you_have_a_fever" [ngModel]="checklist. Do_you_have_a_fever " required #Do_you_have_a_fever="ngModel"> Yes
-                             <input type="radio" value="1" name=" Do_you_have_a_fever" [ngModel]="checklist. Do_you_have_a_fever" required #Do_you_have_a_fever="ngModel"> No
-                     <div *ngIf=" Do_you_have_a_fever .invalid && userForm.submitted && !isValidFormSubmitted" [ngClass] = "'error'">
-                          please select an option!
-                     </div>
-                    </div>
-                 </div>
-
-                 <div>
-                    <div>7. Do you have chills?</div>
-                    <div class="quiz mb-3">
-                         <input type="radio" value="0" name=" Do_you_have_chills" [ngModel]="checklist. Do_you_have_chills" required #Do_you_have_chills="ngModel"> Yes
-                             <input type="radio" value="1" name=" Do_you_have_chills" [ngModel]="checklist. Do_you_have_chills" required #Do_you_have_chills="ngModel"> No
-                     <div *ngIf=" Do_you_have_chills.invalid && userForm.submitted && !isValidFormSubmitted" [ngClass] = "'error'">
-                          please select an option!
-                     </div>
-                    </div>
-                 </div>
-
-                 <div>
-                    <div>8. Do you have a headache?</div>
-                    <div class="quiz mb-3">
-                         <input type="radio" value="0" name=" Do_you_have_a_headache " [ngModel]="checklist. Do_you_have_a_headache " required #Do_you_have_a_headache ="ngModel"> Yes
-                             <input type="radio" value="1" name=" Do_you_have_a_headache " [ngModel]="checklist. Do_you_have_a_headache " required #Do_you_have_a_headache ="ngModel"> No
-                     <div *ngIf=" Do_you_have_a_headache .invalid && userForm.submitted && !isValidFormSubmitted" [ngClass] = "'error'">
-                          please select an option!
-                     </div>
-                    </div>
-                 </div>
-
-                 <div>
-                    <div>9. Do you have muscle aches?</div>
-                    <div class="quiz mb-3">
-                         <input type="radio" value="0" name=" Do_you_have_muscle_aches " [ngModel]="checklist. Do_you_have_muscle_aches " required #Do_you_have_muscle_aches ="ngModel"> Yes
-                             <input type="radio" value="1" name=" Do_you_have_muscle_aches " [ngModel]="checklist. Do_you_have_muscle_aches " required #Do_you_have_muscle_aches ="ngModel"> No
-                     <div *ngIf=" Do_you_have_muscle_aches .invalid && userForm.submitted && !isValidFormSubmitted" [ngClass] = "'error'">
-                          please select an option!
-                     </div>
-                    </div>
-                 </div>
-
-                 <div>
-                    <div>10. Do you have nasal congestion?</div>
-                    <div class="quiz mb-3">
-                         <input type="radio" value="0" name=" Do_you_have_nasal_congestion " [ngModel]="user. Do_you_have_nasal_congestion " required #Do_you_have_nasal_congestion ="ngModel"> Yes
-                             <input type="radio" value="1" name=" Do_you_have_nasal_congestion " [ngModel]="user. Do_you_have_nasal_congestion " required #Do_you_have_nasal_congestion ="ngModel"> No
-                     <div *ngIf=" Do_you_have_nasal_congestion .invalid && userForm.submitted && !isValidFormSubmitted" [ngClass] = "'error'">
-                          please select an option!
-                     </div>
-                    </div>
-                 </div>
-
-                 <div>
-                    <div class="quiz">11. Are you experiencing nausea?</div>
-                    <div class="quiz mb-3">
-                         <input type="radio" value="0" name=" Are_you_experiencing_nausea" [ngModel]="checklist. Are_you_experiencing_nausea" required #Are_you_experiencing_nausea="ngModel"> Yes
-                             <input type="radio" value="1" name=" Are_you_experiencing_nausea" [ngModel]="checklist. Are_you_experiencing_nausea" required #Are_you_experiencing_nausea="ngModel"> No
-                     <div *ngIf=" Are_you_experiencing_nausea.invalid && userForm.submitted && !isValidFormSubmitted" [ngClass] = "'error'">
-                          please select an option!
-                     </div>
-                    </div>
-                 </div>
-
-                 <div>
-                    <div>12. Are you experiencing any vomiting?</div>
-                    <div class="quiz mb-3">
-                         <input type="radio" value="0" name=" Are_you_experiencing_any_vomiting " [ngModel]="checklist. Are_you_experiencing_any_vomiting " required #Are_you_experiencing_any_vomiting ="ngModel"> Yes
-                             <input type="radio" value="1" name=" Are_you_experiencing_any_vomiting " [ngModel]="checklist. Are_you_experiencing_any_vomiting " required #Are_you_experiencing_any_vomiting ="ngModel"> No
-                     <div *ngIf=" Are_you_experiencing_any_vomiting .invalid && userForm.submitted && !isValidFormSubmitted" [ngClass] = "'error'">
-                          please select an option!
-                     </div>
-                    </div>
-                 </div>
-
-                 <div>
-                    <div>13. Do you have diarrhea?</div>
-                    <div class="quiz mb-3">
-                         <input type="radio" value="0" name=" Do_you_have_diarrhea " [ngModel]="checklist. Do_you_have_diarrhea " required #Do_you_have_diarrhea ="ngModel"> Yes
-                             <input type="radio" value="1" name=" Do_you_have_diarrhea " [ngModel]="checklist. Do_you_have_diarrhea " required #Do_you_have_diarrhea ="ngModel"> No
-                     <div *ngIf=" Do_you_have_diarrhea .invalid && userForm.submitted && !isValidFormSubmitted" [ngClass] = "'error'">
-                          please select an option!
-                     </div>
-                    </div>
-                 </div>
-
-                 <div>
-                    <div>14. Close contact with an infected person?</div>
-                    <div class="quiz mb-3">
-                         <input type="radio" value="0" name=" Close_contact_with_an_infected_person" [ngModel]="checklist. Close_contact_with_an_infected_person" required #Close_contact_with_an_infected_person="ngModel"> Yes
-                             <input type="radio" value="1" name=" Close_contact_with_an_infected_person" [ngModel]="checklist. Close_contact_with_an_infected_person" required #Close_contact_with_an_infected_person="ngModel"> No
-                     <div *ngIf="Close_contact_with_an_infected_person.invalid && userForm.submitted && !isValidFormSubmitted" [ngClass] = "'error'">
-                          please select an option!
-                     </div>
-                    </div>
-                 </div> -->
-
-
-                 <!-- <div class="mb-5 text-center">
-                    <button class="btn text-black" style="background-color: #F8FAFA; margin-bottom:2rem ;" type="submit">submit</button>
-                 </div> -->
-                 <!-- <p *ngIf="isValidFormSubmichecklist" [ngClass] = "'success'"> -->
-                    <!-- Form submitted successfully.
-                </p> -->
-                <!-- </form>
-      </div>
-    </div> -->
 
