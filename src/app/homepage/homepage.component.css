@@ -116,3 +116,12 @@
         font-size: 0.9em;
     }
 }
+.search{
+  width:30%;
+  display:inherit;
+}
+.find{
+  display:flex;
+  justify-content: space-between;
+}
+

@@ -1,51 +1,71 @@
-
-<div class="div">
-  <label for="cars">Patient</label>
-
-  <select name="cars" id="cars">
-    <option *ngFor="let patient of patients" value="{{patient.id}}">{{patient.id}}</option>
-  </select>
-  <div class="quiz mb-5" *ngFor="let question of questions">
-    {{question.id}}  {{question.question}}
-    <div class="div" *ngIf="patients">
-      <div class="div" >
-        <label >
-          Yes<input (change)='onAnswer(question.id,true,patients[0  ].id)' type="radio" value="yes" name="answer_{{question.id}}"  >
-         </label>
-         <label >
-          No<input (change)='onAnswer(question.id,false,patients[0].id)'type="radio" value="no" name="answer_{{question.id}}" >
-         </label>
+<div class="container">
+  <h2 class="animate__animated animate__bounceInLeft text-center p-3 font" style="font-size:6vmin; font-family: 'Quintessential', serif;">Health Checklist</h2>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div  class="quiz" *ngFor="let question of questions">
+        <p>{{ question.id }} {{ question.question }}</p>
+        <div class="div" *ngIf="patients">
+          <div class="div">
+            <label class="text-center">
+              <span class="response">Yes</span><input
+                (change)="onAnswer(question.id, true, patients[0].id)"
+                type="radio"
+                value="yes"
+                name="answer_{{ question.id }}"
+              />
+            </label>
+            <label>
+             <span class="response">No</span> <input
+                (change)="onAnswer(question.id, false, patients[0].id)"
+                type="radio"
+                value="no"
+                name="answer_{{ question.id }}"
+              />
+            </label>
+          </div>
+        </div>
       </div>
-
     </div>
+    <div class="col-md-3"></div>
   </div>
 </div>
- <button (click)="onsubmitAnswer($event)" *ngIf="!isLoggedin"> submit</button>
- {{patients[0].id}}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!-- <div class="container">
+  <div class="div">
+    <label for="cars">Patient</label>
+    <select name="cars" id="cars">
+      <option *ngFor="let patient of patients" value="{{ patient.id }}">
+        {{ patient.id }}
+      </option>
+    </select>
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="quiz mb-5"  *ngFor="let question of questions">
+        <p>{{ question.id }} {{ question.question }}</p>
+        <div class="div" *ngIf="patients">
+          <div class="div">
+            <label>
+              Yes<input
+                (change)="onAnswer(question.id, true, patients[0].id)"
+                type="radio"
+                value="yes"
+                name="answer_{{ question.id }}"
+              />
+            </label>
+            <label>
+              No<input
+                (change)="onAnswer(question.id, false, patients[0].id)"
+                type="radio"
+                value="no"
+                name="answer_{{ question.id }}"
+              />
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+  <button (click)="onsubmitAnswer($event)" *ngIf="!isLoggedin">submit</button>
+</div> -->

@@ -15,7 +15,7 @@ export class ProfileComponent implements OnInit {
   answers :boolean;
   patients:any = {};
   response:any=[];
-  tests:any=[];
+  docresult:any=[];
 
   constructor(private accountsService:AccountsService,private questionsService:QuestionsService) {
 
@@ -37,10 +37,10 @@ export class ProfileComponent implements OnInit {
       });
 
 
-      this.questionsService.getDoctorresponse().subscribe(response =>
-        {console.log(response);
+      this.questionsService.getDoctorresponse().subscribe(docresult =>
+        {console.log(docresult);
 
-          this.tests= response;
+          this.docresult= docresult;
 
 
         });
