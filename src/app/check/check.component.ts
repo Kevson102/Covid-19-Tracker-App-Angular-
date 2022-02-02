@@ -1,9 +1,11 @@
+import { User } from './../user';
 import { Component, OnInit } from '@angular/core';
 import { AccountsService } from '../accounts.service';
 import { QuestionsService } from '../questions.service';
 
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-check',
@@ -12,10 +14,15 @@ import { Observable } from 'rxjs';
 })
 export class CheckComponent implements OnInit {
 
+  User:any;
   questions: any = [];
   answers = {};
+  patients:any = {};
+  selectedPatient:any;
+  users:any;
 
-  constructor(private questionsService:QuestionsService) {
+  
+  constructor(private questionsService:QuestionsService, public auth: AuthService) {
 
     this.questionsService.getquestions().subscribe(questions =>
       {console.log(questions);
@@ -24,6 +31,25 @@ export class CheckComponent implements OnInit {
 
 
       });
+
+
+    this.questionsService.getpatient().subscribe(patients=>
+      {console.log(patients);
+
+        this.patients = patients;
+
+
+      });
+
+      // this.questionsService.getusers().subscribe(users =>
+      //   {console.log(users);
+
+      //     this.users = users;
+
+
+      //   });
+
+
 
    }
    isLoggedin=false;
@@ -40,19 +66,27 @@ export class CheckComponent implements OnInit {
 
    }
 
-  onsubmitQuestionAnswer(questionId: number, answer:boolean){
-    this.questionsService.submitanswerquiz(questionId, answer).subscribe(response => {
+  onsubmitQuestionAnswer(questionId: number, answer:boolean,patientId:number){
+    this.questionsService.submitanswerquiz(questionId, answer,patientId).subscribe(response => {
       console.log(response);
     })
   }
 
-   onAnswer(id: number ,answer:boolean){
+   onAnswer(id: number ,answer:boolean,patientId:number){
      this.answers[id]=answer;
-     this.onsubmitQuestionAnswer(id,answer);
+     this.onsubmitQuestionAnswer(id,answer,patientId);
 
    }
 
 
+
+onpatientSelect(evt){
+  const selectElement=evt.target;
+  const patientId=selectElement.querySelector('option:selected')[0].value;
+  console.log(patientId);
+
+
+}
 
 
 
@@ -65,82 +99,5 @@ export class CheckComponent implements OnInit {
 
 
 }
-
-
-//   isValidFormSubmitted = false;
-//   Have_you_lost_smell_or_test:any;
-//   Yes : any;
-//   No : any;
-//   // Do_you_have_a_sore_throat : boolean;
-//   // Are_you_experiencing_fatigue : boolean;
-//   // Do_you_have_a_cough : boolean;
-//   // Do_you_have_difficulties_in_breathing : boolean;
-//   // Do_you_have_a_fever : boolean;
-//   // Do_you_have_chills : boolean;
-//   // Do_you_have_a_headache : boolean;
-//   // Do_you_have_muscle_aches : boolean;
-//   // Do_you_have_nasal_congestion : boolean;
-//   // Are_you_experiencing_nausea : boolean;
-//   // Are_you_experiencing_any_vomiting : boolean;
-//   // Do_you_have_diarrhea : boolean;
-//   // Close_contact_with_an_infected_person : boolean;
-//   constructor(private accountsService:AccountsService) { }
-
-
-
-// // checklist(){
-// //   let form = new FormData();
-// //   form.append('Yes',this.Yes),
-// //   form.append('No',this.No),
-// //   this.accountsService.checklist()
-
-// //   }
-
-// profileForm = this.fb.group({
-//   firstName: ['', Validators.required],
-//   lastName: [''],
-//   address: this.fb.group({
-//     street: [''],
-//     city: [''],
-//     state: [''],
-//     zip: ['']
-//   }),
-//   aliases: this.fb.array([
-//     this.fb.control('')
-//   ])
-// });
-
-
-// addAlias() {
-//   this.aliases.push(this.fb.control(''));
-// }
-
-// ngOnInit(): void {
-//   this.accountsService.checklist()
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

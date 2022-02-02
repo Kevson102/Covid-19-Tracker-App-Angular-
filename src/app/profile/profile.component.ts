@@ -1,3 +1,4 @@
+import { QuestionsService } from './../questions.service';
 import { Component, OnInit } from '@angular/core';
 import { AccountsService } from '../accounts.service';
 
@@ -8,9 +9,47 @@ import { AccountsService } from '../accounts.service';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private accountsService:AccountsService) { }
+
+  User:any;
+  questions: any = [];
+  answers :boolean;
+  patients:any = {};
+  response:any=[];
+  tests:any=[];
+
+  constructor(private accountsService:AccountsService,private questionsService:QuestionsService) {
+
+
+    this.questionsService.getquestions().subscribe(questions =>
+      {console.log(questions);
+
+        this.questions = questions;
+
+
+      });
+
+    this.questionsService.getall().subscribe(response =>
+      {console.log(response);
+
+        this.response= response;
+
+
+      });
+
+
+      this.questionsService.getDoctorresponse().subscribe(response =>
+        {console.log(response);
+
+          this.tests= response;
+
+
+        });
+   }
 
   isLoggedin =false;
+
+
+
 
   ngOnInit(): void {
   }
