@@ -116,3 +116,10 @@
         font-size: 0.9em;
     }
 }
+
+footer{
+  background-color:#89A6A8;
+  width: 100%;
+  padding: 5px;
+  /* margin:auto; */
+}
