@@ -8,6 +8,8 @@ import { SymptomsComponent } from './symptoms/symptoms.component';
 import { CheckComponent } from './check/check.component';
 import { CenterComponent } from './center/center.component';
 import { NewsComponent } from './news/news.component';
+import { ProfileComponent } from './profile/profile.component';
+import { DoctorComponent } from './doctor/doctor.component';
 
 
 const routes: Routes = [
@@ -15,11 +17,13 @@ const routes: Routes = [
   { path: 'homepage',  component: HomepageComponent},
   { path: 'news', component: NewsComponent},
   { path: 'center', component: CenterComponent},
+  { path: 'profile', component: ProfileComponent},
   { path: '', component: LoginComponent},
 
   { path: 'register', component: RegisterComponent },
   { path: 'symptoms', component: SymptomsComponent },
   { path: 'check', component: CheckComponent},
+  { path: 'doctor', component: DoctorComponent}
 
 
 ];

@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
   email:any;
   password:any;
 
-
+  isLoggedin =false;
 
   registerUser(){
     let form = new FormData()

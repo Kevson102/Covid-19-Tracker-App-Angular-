@@ -17,6 +17,10 @@
     </div>
 </div>
 <h2 class="animate__animated animate__bounceInLeft text-center p-3 font" style="font-size:6vmin; font-family: 'Quintessential', serif;"> WORLD GENERAL STATISTICS</h2>
+<div class="div">
+  <div class="row"></div>
+  <div class="row"></div>
+</div>
 <div class="dashbord-container">
     <section *ngIf="!flags.isError">
         <div class="flex-container">
@@ -25,8 +29,8 @@
 
             <form class="form-inline">
                 <label style="padding-right: 10px;" for="exampleFormControlSelect1">COUNTRY</label>
-                <select class="form-control" name="country" id="exampleFormControlSelect1" [(ngModel)]="selectedCountry" (change)="onChangeCountry()">  
-                  <option>All</option>        
+                <select class="form-control" name="country" id="exampleFormControlSelect1" [(ngModel)]="selectedCountry" (change)="onChangeCountry()">
+                  <option>All</option>
                   <option *ngFor="let country of data?.countryList">{{country}}</option>
               </select>
             </form>

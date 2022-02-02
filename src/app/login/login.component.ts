@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
 
   username: any;
-  password: any;
+  password: any; 
 
 
   loginUser(){

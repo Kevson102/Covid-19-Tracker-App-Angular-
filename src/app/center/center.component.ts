@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CenterComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
+  isLoggedin=false;
 
   ngOnInit(): void {
   }
