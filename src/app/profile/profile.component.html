@@ -1,13 +1,83 @@
-<div class="container-fluid justify-content-center login ">
-  <div class="row">
-    <div class="col-md-4" >
-    </div>
-    <div class="col-md-4 mt-2">
-    <h5 class="animate__animated animate__bounceInLeft text-center p-3 font" style="font-size:4vmin; font-family: 'Quintessential', serif;">CHECKLIST RESPONSE</h5>
-    <h5 class="card-title" *ngFor="let i of response">
-      {{i.date_responded}}
-    </h5>
-    <p class="card-text">
-    </p>
-  </div>
+<div class="div container">
+  <table class="table ">
+    <thead>
+      <tr>
+        <th scope="col"><span class="desc">Description</span></th>
+        <th scope="col">Diagnosis</th>
+      </tr>
+    </thead>
+    <tbody class="pb-4 " *ngFor="let docresult of docresult">
+      <tr>
+        <td><span class="desc">Age:</span></td>
+        <td>{{ docresult.age }} years</td>
+      </tr>
+      <tr>
+        <td> <span class="desc">pre existing condition:</span></td>
+        <td>{{ docresult.pre_existing_condition }}</td>
+      </tr>
+      <tr>
+        <td><span class="desc">Temperature:</span></td>
+        <td>{{ docresult.temperature }}</td>
+      </tr>
+      <tr>
+        <td><span class="desc">Nasal swab test:</span></td>
+        <td>{{ docresult.nasal_swab_test }}</td>
+      </tr>
+      <tr>
+        <td><span class="desc">Recommendation:</span></td>
+        <td>{{ docresult.recommendation }}</td>
+      </tr>
+      <tr>
+        <td><span class="desc">Date tested:</span></td>
+        <td>{{ docresult.date_tested }}</td>
+      </tr>
+      <br>
+    </tbody>
+  </table>
 </div>
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container-fluid justify-content-center login">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 mt-2">
+      <h5
+        class="animate__animated animate__bounceInLeft text-center p-3 font"
+        style="font-size: 4vmin; font-family: 'Quintessential', serif"
+      >
+        CHECKLIST RESPONSE
+      </h5>
+      <h5 class="card-title" *ngFor="let i of response">
+        {{ i.date_responded }}<=====>{{ i.answer }}
+      </h5>
+      <p class="card-text"></p>
+    </div>
+  </div>
+
+  <div class="container-fluid justify-content-center login">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4 mt-2 card ">
+      <div class="div card-header">
+         <h5 class="animate__animated animate__bounceInLeft text-center p-3 font"style="font-size: 4vmin; font-family: 'Quintessential', serif">DOCTORS RESULTS</h5>
+      </div>
+        <div class="card-text card-body" *ngFor="let docresult of docresult">
+          <p class="card-text">Age:{{ docresult.age }}</p>
+          <p class="card-text">pre existing condition:{{ docresult.pre_existing_condition }}</p>
+          <p class="card-text">Temperature:{{ docresult.temperature }}</p>
+          <p class="card-text">Nasal swab test:{{ docresult.nasal_swab_test }}</p>
+          <p class="card-text">Recommendation:{{ docresult.recomendation }}</p>
+          <p class="card-text">Date tested:{{ docresult.date_tested }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

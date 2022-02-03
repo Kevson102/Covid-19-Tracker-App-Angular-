@@ -15,22 +15,22 @@
             <div class="col-md-5"></div>
         </div>
     </div>
-</div>
-<h2 class="animate__animated animate__bounceInLeft text-center p-3 font" style="font-size:6vmin; font-family: 'Quintessential', serif;"> WORLD GENERAL STATISTICS</h2>
+    <h2 class="animate__animated animate__bounceInLeft text-center p-3 font" style="font-size:6vmin; font-family: 'Quintessential', serif;"> WORLD GENERAL STATISTICS</h2>
 <div class="div">
   <div class="row"></div>
   <div class="row"></div>
 </div>
 <div class="dashbord-container">
     <section *ngIf="!flags.isError">
-        <div class="flex-container">
+        <div class="find">
+          <div>
             <h5 *ngIf="selectedCountry.toLowerCase() == 'all'" class="info-text" style="font-size:3vmin; font-family: 'Quintessential', serif;">SHOWING RESULTS FOR ALL COUNTRIES</h5>
             <h5 *ngIf="selectedCountry.toLowerCase() != 'all'" class="info-text" style="font-size:3vmin; font-family: 'Quintessential', serif;">Showing results for {{selectedCountry}}</h5>
-
-            <form class="form-inline">
-                <label style="padding-right: 10px;" for="exampleFormControlSelect1">COUNTRY</label>
+          </div>
+            <form class="form-inline search">
+                <label style="padding-top: 20px;" for="exampleFormControlSelect1">COUNTRY</label>
                 <select class="form-control" name="country" id="exampleFormControlSelect1" [(ngModel)]="selectedCountry" (change)="onChangeCountry()">
-                  <option>All</option>
+                  <option>Search</option>
                   <option *ngFor="let country of data?.countryList">{{country}}</option>
               </select>
             </form>
@@ -140,27 +140,5 @@
     </section>
 
 </div>
-
-
-
-<!-- <div class="container " style="color: white ">
-  <div class="information "> -->
-
-<!-- Background image -->
-
-<!-- <div class="bg-image img-responsive justify-content-center align-items-center">
-       <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-7">
-          <h1 style="font-size:48px; margin-top:60px; font-family:Arial; font-weight:">Infra Health</h1>
-          <h2>Towards a Covid-Free country!</h2>
-          <p>
-            Know your COVID19 status, Interact with a doctor and get home care or
-            hospital recommendations.
-          </p></div>
-        <div class="col-md-4"></div>
-      </div>
-    </div>
-  </div>
-
-</div> -->
+<app-footer></app-footer>
+</div>

@@ -21,7 +21,7 @@ export class CheckComponent implements OnInit {
   selectedPatient:any;
   users:any;
 
-  
+
   constructor(private questionsService:QuestionsService, public auth: AuthService) {
 
     this.questionsService.getquestions().subscribe(questions =>
@@ -40,17 +40,6 @@ export class CheckComponent implements OnInit {
 
 
       });
-
-      // this.questionsService.getusers().subscribe(users =>
-      //   {console.log(users);
-
-      //     this.users = users;
-
-
-      //   });
-
-
-
    }
    isLoggedin=false;
    onsubmitAnswer(e) {
