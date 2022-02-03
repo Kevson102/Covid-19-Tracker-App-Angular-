@@ -21,6 +21,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { FormatNumberPipe } from './pipes';
 import { ProfileComponent } from './profile/profile.component';
 import { DoctorComponent } from './doctor/doctor.component';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { DoctorComponent } from './doctor/doctor.component';
     NewsComponent,
     FormatNumberPipe,
     ProfileComponent,
-    DoctorComponent
+    DoctorComponent,
+    FooterComponent
 
 
   ],

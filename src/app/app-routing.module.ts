@@ -10,6 +10,7 @@ import { CenterComponent } from './center/center.component';
 import { NewsComponent } from './news/news.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DoctorComponent } from './doctor/doctor.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 const routes: Routes = [
@@ -23,7 +24,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'symptoms', component: SymptomsComponent },
   { path: 'check', component: CheckComponent},
-  { path: 'doctor', component: DoctorComponent}
+  { path: 'doctor', component: DoctorComponent},
+  { path: 'footer', component: FooterComponent},
 
 
 ];

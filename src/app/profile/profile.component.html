@@ -1,12 +1,12 @@
-<div class="div  container">
-  <table class="table">
+<div class="div container">
+  <table class="table ">
     <thead>
       <tr>
         <th scope="col"><span class="desc">Description</span></th>
         <th scope="col">Diagnosis</th>
       </tr>
     </thead>
-    <tbody *ngFor="let docresult of docresult">
+    <tbody class="pb-4 " *ngFor="let docresult of docresult">
       <tr>
         <td><span class="desc">Age:</span></td>
         <td>{{ docresult.age }} years</td>
@@ -31,6 +31,7 @@
         <td><span class="desc">Date tested:</span></td>
         <td>{{ docresult.date_tested }}</td>
       </tr>
+      <br>
     </tbody>
   </table>
 </div>
