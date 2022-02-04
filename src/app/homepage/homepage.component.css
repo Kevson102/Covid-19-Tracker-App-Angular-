@@ -1,7 +1,7 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
 .image {
-    background: url(/assets/canva2.jpg);
+    background: url("/assets/canva2.jpg");
     height: 90vh;
     background-repeat: no-repeat;
     background-size: 100% 100%;
